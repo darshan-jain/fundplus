@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Fund +</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+ 
+    <style>
+        .form1{
+
+  margin: auto;
+  width: 50%;
+  border: 3px;
+  padding: 10px;
+}
+        
+    </style>
+
+<script>
+//Donor
+
+if (typeof Web3 !== 'undefined') {
+      console.log('inside web3')
+              Web3 = new Web3(Web3.currentProvider);
+    } else 
+        {
+          console.log('else web3');
+                web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545")); 
+  
+        }
+
+window.ethereum.enable()
+    .then(function (accounts) {
+        console.log(accounts);
+        console.log(accounts[0]);
+
+        web3.eth.defaultAccount = accounts[0];
+
+        var contract = web3.eth.contract(
+          [
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [],
+		"name": "checkBalance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "depositFunds",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_userAddress",
+				"type": "address"
+			}
+		],
+		"name": "transferFundsdonor",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "withdrawFunds",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
+        )
+        var landrecord = contract.at("0x71720e8d8f2A369285893d6A92Ab7Be65885fDC5");
+
+    console.log(landrecord);
+
+              $("#button1").click(function (){
+        landrecord.propertydetails($("#address").val(),$("#owner").val(),$("#price").val(),(req,res)=>{
+                console.log(res);
+
+            })
+            
+})
+
+$("#button2").click(function () {
+        landrecord.getpropertydetails($('#getDesAd').val(),(req,res)=>{
+            console.log(res);
+            $("#gaddr").html(res[0]);
+            $("#gowner").html(res[1]);
+            $("#gprice").html(res[2].c[0]);
+
+        })
+       
+    
+    });
+
+
+          $("#updateButton").click(function (){
+        landrecord.changepropertyowner($("#address").val(),$("#updateowner").val(),(req,res)=>{
+                console.log(res);
+
+            })
+                   
+          })
+});
+
+
+
+
+
+
+</script>
+
+<script>
+  //NGO
+  
+  if (typeof Web3 !== 'undefined') {
+        console.log('inside web3')
+                Web3 = new Web3(Web3.currentProvider);
+      } else 
+          {
+            console.log('else web3');
+                  web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545")); 
+    
+          }
+  
+  window.ethereum.enable()
+      .then(function (accounts) {
+          console.log(accounts);
+          console.log(accounts[0]);
+  
+          web3.eth.defaultAccount = accounts[0];
+  
+          var contract = web3.eth.contract(
+            [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "checkBalance",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "depositFunds",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address payable",
+          "name": "_userAddress",
+          "type": "address"
+        }
+      ],
+      "name": "transferFundsdonor",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withdrawFunds",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ]
+          )
+          var landrecord = contract.at("0x71720e8d8f2A369285893d6A92Ab7Be65885fDC5");
+  
+      console.log(landrecord);
+  
+                $("#button1").click(function (){
+          landrecord.propertydetails($("#address").val(),$("#owner").val(),$("#price").val(),(req,res)=>{
+                  console.log(res);
+  
+              })
+              
+  })
+  
+  $("#button2").click(function () {
+          landrecord.getpropertydetails($('#getDesAd').val(),(req,res)=>{
+              console.log(res);
+              $("#gaddr").html(res[0]);
+              $("#gowner").html(res[1]);
+              $("#gprice").html(res[2].c[0]);
+  
+          })
+         
+      
+      });
+  
+  
+            $("#updateButton").click(function (){
+          landrecord.changepropertyowner($("#address").val(),$("#updateowner").val(),(req,res)=>{
+                  console.log(res);
+  
+              })
+                     
+            })
+  });
+  
+  
+  
+  
+  
+  
+  </script>
+    </head>
+    
+    
+      
+        <body>
+              <!--navbar-->
+            <header class="text-gray-700 body-font">
+                <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+                  <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" href="index.html">
+                    <img src="https://www.linkpicture.com/q/White-with-Padlock-Icon-Computer-Logo.png" type="image" style="height: 115px;">
+                  </a>
+                  <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                    <a class="mr-5 hover:text-gray-900" href="index.html"><text style="font-family:'Montserrat', sans-serif; font-size: 15px; color: black;">Home</text></a>
+                    <a class="mr-5 hover:text-gray-900" href="vision.html"><text style="font-family:'Montserrat', sans-serif;font-size: 15px ;color: black;">Vision</text></a>
+                  </nav>
+                </div>
+              </header>
+
+              <h2 class="mb-8 " style="margin-left: 10rem;"> <text  style="font-size: 40px; font-family:'Montserrat', sans-serif; word-spacing: 8px; color: #00296b;"> <b>Donor Signup </b></text> </h2>
+<hr>
+              <!--Donor Form-->
+           
+            <div class="form1">
+                <form>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1" style="font-family:'Poppins', sans-serif;">Donor address</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Address" style="width: 500px;">
+                    </div>
+                    <div class="form-group">
+                      <label for="name" style="font-family:'Poppins', sans-serif;" >Donor Name</label>
+                      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter your Name" style="width: 500px;">
+                    </div>
+                    <div class="form-group">
+                        <label for="email"  style="font-family:'Poppins', sans-serif;">Donor Email</label>
+                        <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Enter your Mail-ID" style="width: 500px;">
+                      </div>
+                      <div class="form-group">
+                        <label for="mobile"  style="font-family:'Poppins', sans-serif;">Donor Mobile No</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter your mobile no" style="width: 500px;">
+                      </div>
+                   
+                    <button type="submit" class="btn btn-primary"  style="font-family:'Poppins', sans-serif;">Submit</button>
+                  </form>
+            </div>
+           
+               
+          
+            
+            <br/>
+            <br/>
+            <section id="nonp">
+            <h2 class="mb-8 " style="margin-left: 10rem;"> <text  style="font-size: 40px; font-family:'Montserrat', sans-serif; word-spacing: 8px; color: #00296b;"> <b>Non-Profit Signup </b></text> </h2>
+            <hr>
+                          <!--Donor Form-->
+                          <form class="form1">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1" style="font-family:'Poppins', sans-serif;">Non-profit address</label>
+                              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Address" style="width: 500px;">
+                            </div>
+                            <div class="form-group">
+                              <label for="name" style="font-family:'Poppins', sans-serif;" >Non-Profit Registered Name</label>
+                              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter the name" style="width: 500px;">
+                            </div>
+                            <div class="form-group">
+                                <label for="nos"  style="font-family:'Poppins', sans-serif;">Non-Profit Registration No.</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter the registration no." style="width: 500px;">
+                              </div>
+                              <div class="form-group">
+                                <label for="mobile"  style="font-family:'Poppins', sans-serif;">Non-Profit Field</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter the Field " style="width: 500px;">
+                              </div>
+                           
+                            <button type="submit" class="btn btn-primary"  style="font-family:'Poppins', sans-serif; " id="button1">Submit</button>
+                          </form>
+                        </section>
+
+              
+<!--footer-->
+              <footer class="text-gray-700 body-font">
+                <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-no-wrap flex-wrap flex-col">
+                  <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+                    <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                      <img src="https://www.linkpicture.com/q/White-with-Padlock-Icon-Computer-Logo.png" type="image">
+                    </a>
+                  </div>
+                  <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+                    <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                      <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3"> <text style="font-size: 20px; font-family:'Montserrat', sans-serif;  color: #00296b;">Contact Us</text></h2>
+                      <nav class="list-none mb-10">
+                        <li>
+                          <a href="index.html" class="text-gray-600 hover:text-gray-800"style="font-size: 15px; font-family:'Poppins', sans-serif; ">Home</a>
+                        </li>
+                        <li>
+                          <a href="vision.html" class="text-gray-600 hover:text-gray-800" style="font-size: 15px; font-family:'Poppins', sans-serif; ">Vision</a>
+                        </li>
+                      </nav>
+                    </div>
+                    
+                  </div>
+                </div>
+                <div class="bg-gray-200">
+                  <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+                    <p style="font-size: 15px; font-family:'Poppins', sans-serif; "> Developed with <3 </p>
+                    <br>
+                    <p class="text-gray-500 text-sm text-center sm:text-left"style="font-size: 15px; font-family:'Poppins', sans-serif; ">© 2020 Fund+ 
+                    </p>
+                  </div>
+                </div>
+              </footer>

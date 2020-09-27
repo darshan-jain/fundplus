@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Fund +</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    </head>
+    <style>tml, body {
+        font-family: 'Open Sans', sans-serif;
+        height: 100%;
+      }
+      body {
+        background: #FFFFFF;
+        height: 100%;
+      }
+      img {
+        max-width: 100%;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        text-decoration: none;
+      }
+      #header {
+        float: left;
+        width: 100%;
+        background: #ffffff;
+        position: relative;
+      }
+      .white-label {
+        float: left;
+        background: #33373B;
+        max-width: 210px;
+        padding: 10px;
+        min-height: 44px;
+        background: #279BE4;
+        width: 100%;
+        max-height: 44px;
+      }
+      .white-label img {
+        max-height: 43px;
+      }
+      .header-nav {
+        min-height: 64px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        background: #279BE4;
+      }
+      .menu-button {
+        float: left;
+        font-size: 29px;
+        color: #fff;
+        padding: 12px 19px;
+      }
+      .nav ul {
+        height: 64px;
+        float: right;
+      }
+      .nav ul li {
+        float: left;
+        position: relative;
+        padding: 11px;
+      }
+      .nav > ul > li:first-child {
+        border-left: none;
+      }
+      .nav ul li a {
+        color: #fff;
+        padding: 1px;
+        float: left;
+      }
+      .nav ul li i {
+        color: #fff;
+      }
+      .nav ul li:hover {
+        background: #01A9F0;
+        color: #fff;
+      }
+      .user-profile {
+        float: right;
+      }
+      .user-profile > div {
+        float: left;
+        padding: 20px 8px;
+        position: relative;
+      }
+      .user-profile i {
+        font-size: 1.2em;
+        color: #5F6F86;
+      }
+      .user-profile i:hover {
+        color: #397AC5;
+      }
+      .font-icon i:after {
+        position: absolute;
+        content: '3';
+        background: #E74C3C;
+        color: #fff;
+        font-size: 12px;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        padding: 3px 4px 4px 3px;
+        text-align: center;
+        top: 12px;
+        right: 11px;
+      }
+      .font-icon {
+        padding: 8px 10px;
+      }
+      .font-icon i {
+        font-size: 24px;
+      }
+      .nav-mail .font-icon i:after {
+        background: #2ECC71;
+      }
+      div.user-image {
+        padding: 9px 5px;
+        margin: 0 5px;
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+      }
+      .nav-profile {
+        background: #0274BD;
+      }
+      .nav-profile-image img {
+        width: 39px;
+        height: 41px;
+        border-radius: 50%;
+        float: left;
+      }
+      .nav-profile-name {
+        float: right;
+        margin: 11px 7px 8px 14px;
+        color: #fff;
+      }
+      .nav-profile-name i {
+        padding: 0 0 0 11px;
+      }
+      .nav-chat i:after {
+        display: none;
+      }
+      #sidebar {
+        overflow: hidden;
+        width: 210px;
+        height: 100%;
+        float: left;
+        background: #2A2D33;
+      }
+      #sidebar-nav {
+        width: 106%;
+        height: calc(100% - 95px);
+        padding: 0;
+        background: #2A2D33;
+        border-right: 1px solid #E0E0E0;
+        overflow-y: scroll;
+      }
+      #sidebar-nav h2 {
+        color: #60636B;
+        float: left;
+        width: 100%;
+        font-size: .8em;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 3px 0 2px 20px;
+        border-top: 1px solid #4D4C4C;
+        box-sizing: border-box;
+        margin: 10px 0;
+      }
+      #sidebar-nav ul {
+      
+      }
+      #sidebar-nav ul li {
+      
+      }
+      #sidebar-nav ul li a {
+        color: #C2C2C2;
+        font-size: .95em;
+        padding: 15px 20px;
+        float: left;
+        width: 100%;
+        font-weight: 600;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      #sidebar-nav ul li:hover a, #sidebar-nav ul li:hover a i, #sidebar-nav li.active a, #sidebar-nav li.active a i {
+        color: #333;
+      }
+      #sidebar-nav ul li:hover a {
+        background: #fff;
+        color: #333;
+      }
+      #sidebar-nav ul li.active a {
+        background: #fff;
+        color: #333;
+      }
+      #sidebar-nav ul li.active a i {
+        background: #fff;
+      }
+      #sidebar-nav i {
+        padding-right: 8px;
+        font-size: 1.3em;
+        color: #60636B;
+        width: 25px;
+        text-align: center;
+      }
+      #content {
+        float: left;
+        width: calc(100% - 210px);
+        height: 100%;
+        word-wrap: break-word;
+        background: #FFFFFF;
+        font-family: Raleway, sans-serif;
+      }
+      ::-webkit-scrollbar {
+          width: 12px;
+      }
+      ::-webkit-scrollbar-track {
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+          border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+          border-radius: 10px;
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+      }
+      .content {
+        float: left;
+        background: #E9EEF4;
+        width: 100%;
+        height: calc(100% - 64px);
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      .content-header {
+        background: #fff;
+        float: left;
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 15px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        border-bottom: 1px solid #ccc;
+      }
+      .content-header h1 {
+        margin: 0;
+        font-weight: normal;
+        padding-bottom: 5px;
+      }
+      .content-header p {
+        margin: 0;
+        padding-left: 2px;
+      }
+      .widget-box {
+        background: #fff;
+        border: 1px solid #E0E0E0;
+        float: left;
+        width: 100%;
+        margin: 0 0 15px 15px;
+      }
+      .widget-header {
+        background: #279BE4;
+      }
+      .widget-header h2 {
+        font-size: 15px;
+        font-weight: normal;
+        margin: 0;
+        padding: 11px 15px;
+        color: #F9F9F9;
+        display: inline-block;
+      }
+      .sample-widget {max-width: 47%;}
+      .widget-box .fa-cog {
+        float: right;
+        color: #fff;
+        margin: 11px 11px 0 0;
+        font-size: 20px;
+      }</style>
+    
+      
+        <body>
+              <!--navbar-->
+            <header class="text-gray-700 body-font">
+                <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+                  <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" href="index.html">
+                    <img src="https://www.linkpicture.com/q/White-with-Padlock-Icon-Computer-Logo.png" type="image" style="height: 115px;">
+                  </a>
+                  <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                    <a class="mr-5 hover:text-gray-900" href="index.html"><text style="font-family:'Montserrat', sans-serif; font-size: 15px; color: black;">Home</text></a>
+                    <a class="mr-5 hover:text-gray-900" href="vision.html"><text style="font-family:'Montserrat', sans-serif;font-size: 15px ;color: black;">Vision</text></a>
+                  </nav>
+                </div>
+              </header>
+
+              <h2 class="mb-8 " style="margin-left: 10rem;"> <text  style="font-size: 40px; font-family:'Montserrat', sans-serif; word-spacing: 8px; color: #00296b;"> <b>Non-Profit Details </b></text> </h2>
+<hr>
+              <!--Donor Details-->
+        
+             
+                <section id="content" style="margin-left:9em">
+                    <div class="content">
+                      <div class="content-header">
+                        <h1 style="font-size: 40px; font-family:'Montserrat', sans-serif; word-spacing: 8px; color: #00296b;">Dashboard</h1>
+                      </div>
+                      <div class="widget-box sample-widget">
+                        <div class="widget-header">
+                            <h2  style="font-family:'Poppins', sans-serif;font-size: 15px ;color: black;">Total Donations</h2>
+                          <i class="fa fa-cog"></i>
+                        </div>
+                        <div class="widget-content" style="margin-left:20px">
+                        
+                       
+                        <text  style=" font-size: 40px; font-family:'Montserrat', sans-serif; word-spacing: 8px; color: #00296b;"> <b>$200.00</b></text>
+                        </div>
+
+                      </div>
+                      <div class="widget-box sample-widget">
+                        <div class="widget-header">
+                            <h2  style="font-family:'Poppins', sans-serif;font-size: 15px ;color: black;">Total Balance</h2>
+                          <i class="fa fa-cog"></i>
+                        </div>
+                        <div class="widget-content" style="margin-left:20px">
+                            <text  style=" font-size: 40px; font-family:'Montserrat', sans-serif; word-spacing: 8px; color: #00296b;"> <b>$20.00</b></text>
+
+                        </div>
+                    </div>
+                        <div class="widget-box sample-widget">
+                            <div class="widget-header">
+                                <h2  style="font-family:'Poppins', sans-serif;font-size: 15px ;color: black;">Total Expense</h2>
+                              <i class="fa fa-cog"></i>
+                            </div>
+                            <div class="widget-content" style="margin-left:20px">
+                                <text  style=" font-size: 40px; font-family:'Montserrat', sans-serif; word-spacing: 8px; color: #00296b;"> <b>$180.00</b></text>
+    
+                            </div>
+                     
+                       
+                    </div>
+
+                    <br/>
+                    <br/>
+                    <div>
+                        <table class="table table-borderless bg-primary">
+                            <thead>
+                              <tr >
+                                <th scope="col" class="bg-color">#</th>
+                                <th scope="col" class="bg-color">TimeStamp</th>
+                                <th scope="col" class="bg-color">NGO/Cause</th>
+                                <th scope="col" class="bg-color">Amount</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td >23/08/2020 23:30</td>
+                                <td>Volunteer</td>
+                                <td>$100</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>23/08/2020 11:30</td>
+                                <td>Food</td>
+                                <td>$80</td>
+                              </tr>
+                              
+                            </tbody>
+                          </table>
+                    </div>
+                  </section>
+             
+              <!--donor transactions & contribution -->
+ <!--cards -->
+
+ 
+ <!--Total Contribution-->
+              <!--table & graph-->
+              
+
+
+
+
+              <!--footer-->
+
+              
+
+              <footer class="text-gray-700 body-font">
+                <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-no-wrap flex-wrap flex-col">
+                  <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+                    <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                      <img src="https://www.linkpicture.com/q/White-with-Padlock-Icon-Computer-Logo.png" type="image">
+                    </a>
+                  </div>
+                  <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+                    <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                      <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3"> <text style="font-size: 20px; font-family:'Montserrat', sans-serif;  color: #00296b;">Contact Us</text></h2>
+                      <nav class="list-none mb-10">
+                        <li>
+                          <a href="index.html" class="text-gray-600 hover:text-gray-800"style="font-size: 15px; font-family:'Poppins', sans-serif; ">Home</a>
+                        </li>
+                        <li>
+                          <a href="vision.html" class="text-gray-600 hover:text-gray-800" style="font-size: 15px; font-family:'Poppins', sans-serif; ">Vision</a>
+                        </li>
+                      </nav>
+                    </div>
+                    
+                  </div>
+                </div>
+                <div class="bg-gray-200">
+                  <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+                    <p style="font-size: 15px; font-family:'Poppins', sans-serif; "> Developed with <3 </p>
+                    <br>
+                    <p class="text-gray-500 text-sm text-center sm:text-left"style="font-size: 15px; font-family:'Poppins', sans-serif; ">© 2020 Fund+ 
+                    </p>
+                  </div>
+                </div>
+              </footer>
