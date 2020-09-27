@@ -1,4 +1,4 @@
-This project is for HACKUNTHON 2020
+This project is for HACKNUTHON 2020
 
 # Developers
 Darshan
