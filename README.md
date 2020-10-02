@@ -1,10 +1,2 @@
-This project is for HACKNUTHON 2020
-We came 3rd in this hackathon.
-
-# Developers
-Darshan 
-Raswanth 
-Piyush Maheshwari 
-
-# fundplus
-A Blockchain powered cross platform app to help you donate and receive donations seamlessly through complete transparency.
+# FUND_Tracker
+ 
