@@ -1,5 +1,4 @@
-This project is for HACKNUTHON 2020
-We came 3rd in this hackathon.
+
 
 # Developers
 Darshan 
